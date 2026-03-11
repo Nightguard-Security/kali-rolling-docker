@@ -21,7 +21,7 @@ RUN apt update && \
         libicu-dev \
         htop \
         iputils-ping \
-        && \
+        add-apt-repository && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 

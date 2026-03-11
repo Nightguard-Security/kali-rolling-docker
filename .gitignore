@@ -1,4 +1,3 @@
 Chrome
-root/*
-root/.*
+root
 !root/.bash_profile

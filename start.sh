@@ -1,4 +1,5 @@
-docker build -t ng-kali .
+docker rm -f ng-kali || true \
+docker build -t ng-kali \
 docker run -d \
   --name=ng-kali \
   -it \

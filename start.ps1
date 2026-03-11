@@ -1,3 +1,4 @@
+docker rm -f ng-kali 2>$null .
 docker build -t ng-kali .
 docker run -d `
   --name ng-kali `

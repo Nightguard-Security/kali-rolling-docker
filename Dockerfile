@@ -23,16 +23,20 @@ RUN apt-get update && \
         software-properties-common && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
-
-# Sniff test for bugs
+RUN apt-get update && \
+    apt-get -y install \
+        linux-headers-$(dpkg --print-architecture) && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 RUN add-apt-repository contrib -y && \
     wget https://developer.download.nvidia.com/compute/cuda/repos/debian13/x86_64/cuda-keyring_1.1-1_all.deb && \
     dpkg -i cuda-keyring_1.1-1_all.deb && \
     apt-get update && \
     apt-get -y install \
-        linux-headers-$(dpkg --print-architecture) \
         nvidia-driver \
-        nvidia-cuda-toolkit
+        nvidia-cuda-toolkit && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
 # Download and install nvm
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.4/install.sh | bash

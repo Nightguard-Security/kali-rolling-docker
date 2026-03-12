@@ -1,4 +1,6 @@
-docker rm -f ng-kali 2>$null .
+if (docker ps -a -q -f name=ng-kali) { 
+    docker rm -f ng-kali 
+}
 docker build -t ng-kali .
 docker run -d `
   --name ng-kali `

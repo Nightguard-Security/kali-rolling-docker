@@ -1,7 +1,9 @@
 if [ -n "$(docker ps -aqf name=ng-kali)" ]; then
     docker rm -f ng-kali
 fi
-docker build -t ng-kali
+echo "Building Kali..."
+docker buildx build -t ng-kali .
+echo "Kali Built. Running..."
 docker run -d \
   --name=ng-kali \
   -it \
@@ -17,4 +19,6 @@ docker run -d \
   --gpus all \
   ng-kali
 sleep 2
+
+echo "Kali started. Setting permissions..."
 docker exec ng-kali chmod 700 /root

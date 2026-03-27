@@ -11,10 +11,9 @@ docker run -d \
   -e PGID=1000 \
   -e TZ=Etc/UTC \
   -p 40022:22 \
-  -v ./root:/root \
+  -v ./root:/root:rw,z \
   --device "/dev/net/tun:/dev/net/tun" \
   --restart unless-stopped \
   --gpus all \
   ng-kali
 sleep 2
-docker exec ng-kali chmod 700 /root

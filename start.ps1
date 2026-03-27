@@ -17,4 +17,3 @@ docker run -d `
   --gpus all `
   ng-kali
 Start-Sleep -Seconds 2
-docker exec ng-kali chmod 700 /root

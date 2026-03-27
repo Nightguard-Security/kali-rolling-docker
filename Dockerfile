@@ -54,7 +54,7 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt,sharing=locked \
     apt-get update && \
     apt-get -y install \
     nvidia-driver \
-    nvidia-cuda-toolkit && \
+    cuda-toolkit && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 

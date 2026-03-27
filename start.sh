@@ -1,7 +1,7 @@
 if [ -n "$(docker ps -aqf name=ng-kali)" ]; then
     docker rm -f ng-kali
 fi
-docker buildx build -t ng-kali .
+docker build -t ng-kali .
 docker run -d \
   --name=ng-kali \
   -it \

@@ -1,7 +1,7 @@
 if (docker ps -a -q -f name=ng-kali) { 
     docker rm -f ng-kali 
 }
-docker buildx build -t ng-kali .
+docker build -t ng-kali .
 docker run -d `
   --name ng-kali `
   -it `
